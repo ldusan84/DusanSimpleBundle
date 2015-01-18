@@ -1,0 +1,4 @@
+dusan_simple_index:
+    resource:     "@DusanSimpleBundle/Controller/DefaultController.php"
+    type:         annotation
+    prefix:       /dusan

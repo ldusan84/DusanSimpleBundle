@@ -1,0 +1,2 @@
+parameters:
+    dusan_simple.simple_crud.entity.class: Dusan\Bundle\SimpleBundle\Entity\SimpleCrud

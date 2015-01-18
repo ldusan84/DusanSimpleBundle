@@ -1,0 +1,42 @@
+datagrid:
+    dusan-simple-grid:
+        source:
+            type: orm
+            query:
+                select:
+                    - simple_crud.id
+                    - simple_crud.firstname
+                    - simple_crud.lastname
+                    - simple_crud.email
+                from:
+                    - { table: %dusan_simple.simple_crud.entity.class%, alias: simple_crud }
+        columns:
+            id:
+                label: dusan_simple.simple_crud.id.label
+            firstname:
+                label: dusan_simple.simple_crud.firstname.label
+            lastname:
+                label: dusan_simple.simple_crud.lastname.label
+            email:
+                label: dusan_simple.simple_crud.email.label
+        properties:
+            id: ~
+            update_link:
+                type:       url
+                route:      dusan_simple_update
+                params:     [ id ]
+            delete_link:
+                type:       url
+                route:      dusan_simple_delete
+                params:     [ id ]
+        actions:
+            update:
+                type:          navigate
+                label:         oro.grid.action.update
+                icon:          edit
+                link:          update_link
+            delete:
+                type:          navigate
+                label:         oro.grid.action.delete
+                icon:          trash
+                link:          delete_link

@@ -1,0 +1,22 @@
+oro_menu_config:
+    items:
+        dusan_tab:
+            label: Dusan
+            uri:   '#'
+            extras:
+                position: 300
+        dusan_tab_link:
+            label: Dusan Simple Crud
+            route: dusan_simple_index
+            extras:
+                routes: ['/^dusan_simple_index/']
+                description: Dusan Simple Crud Link
+    tree:
+        application_menu:
+            children:
+                dusan_tab:
+                    children:
+                        dusan_tab_link: ~
+
+oro_titles:
+    dusan_simple_index: Dusan Simple Crud

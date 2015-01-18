@@ -1,0 +1,14 @@
+{% extends 'OroUIBundle:actions:index.html.twig' %}
+{% import 'OroDataGridBundle::macros.html.twig' as dataGrid %}
+{% set pageTitle = 'dusan_simple.simple_crud.entity_plural_label'|trans %}
+{% set gridName = 'dusan-simple-grid' %}
+
+{% block navButtons %}
+        <div class="btn-group">
+            {{ UI.addButton({
+                'path' : path('dusan_simple_create'),
+                'title' : 'dusan_simple.simple_crud.new'|trans,
+                'label' : 'dusan_simple.simple_crud.new'|trans
+            }) }}
+        </div>
+{% endblock %}

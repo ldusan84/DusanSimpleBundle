@@ -1,0 +1,8 @@
+dusan_simple:
+    simple_crud:
+        id.label:              Id
+        firstname.label:         Subject
+        lastname.label:    "Phone number"
+        email.label:           Owner
+        entity_plural_label:   "Simple Crud"
+        new: New
