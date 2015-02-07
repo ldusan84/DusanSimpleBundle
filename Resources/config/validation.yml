@@ -1,0 +1,8 @@
+Dusan\Bundle\SimpleBundle\Entity\SimpleCrud:
+    properties:
+        firstname:
+            - NotBlank: ~
+        lastname:
+            - NotBlank: ~
+        email:
+            - NotBlank: ~

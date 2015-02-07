@@ -1,0 +1,63 @@
+{% extends 'OroUIBundle:actions:update.html.twig' %}
+
+{% oro_title_set({params : {"%subject%": form.vars.value.subject|default('N/A') } }) %}
+
+{% block content_data %}
+    {% set id = 'simplecrud-log' %}
+    {% set title = 'oro.ui.edit_entity'|trans({'%entityName%': 'dusan_simple.simple_crud.entity_label'|trans}) %}
+
+    {% set formFields = [] %}
+
+    {% set formFields = formFields|merge([
+        form_row(form.firstname),
+        form_row(form.lastname),
+        form_row(form.email),
+    ]) %}
+
+    {% set dataBlocks = [{
+        'title': title,
+        'class': 'active',
+        'subblocks': [
+            {
+                'title': title,
+                'data': formFields
+            }
+        ]
+    }] %}
+
+    {% set data = {
+        'formErrors': form_errors(form)? form_errors(form) : null,
+        'dataBlocks': dataBlocks
+    } %}
+    {{ parent() }}
+{% endblock content_data %}
+
+{% block navButtons %}
+    {{ UI.cancelButton(path('dusan_simple_index')) }}
+    {% set html = UI.saveAndCloseButton() %}
+    {% if form.vars.value.id or resource_granted('dusan_simple_update') %}
+        {% set html = html ~ UI.saveAndStayButton() %}
+    {% endif %}
+    {{ UI.dropdownSaveButton({'html': html}) }}
+{% endblock %}
+
+{% block pageHeader %}
+    {% if form.vars.value.id %}
+        {% set breadcrumbs = {
+            'entity':      form.vars.value,
+            'indexPath':   path('dusan_simple_index'),
+            'indexLabel': 'dusan_simple.simple_crud.entity_plural_label'|trans,
+            'entityTitle': form.vars.value.subject|default('N/A')
+        }
+        %}
+    {% else %}
+        {% set breadcrumbs = {
+            'entity':      form.vars.value,
+            'indexPath':   path('dusan_simple_index'),
+            'indexLabel': 'dusan_simple.simple_crud.entity_plural_label'|trans,
+            'entityTitle': 'dusan_simple.simple_crud.edit'|trans
+        }
+        %}
+    {% endif %}
+    {{ parent() }}
+{% endblock pageHeader %}

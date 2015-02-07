@@ -1,0 +1,20 @@
+parameters:
+    dusan_simple.form.type.class:         Dusan\Bundle\SimpleBundle\Form\Type\SimpleCrudType
+    dusan_simple.form.handler.class:      Dusan\Bundle\SimpleBundle\Form\Handler\SimpleCrudHandler
+
+services:
+    dusan_simple.form.type:
+        class: %dusan_simple.form.type.class%
+        tags:
+            - { name: form.type, alias: dusan_simple_crud_form }
+
+    dusan_simple.form.handler:
+        class: %dusan_simple.form.handler.class%
+        scope: request
+        arguments:
+            - "dusan_simple_crud_form"
+            - "dusan_simple_crud_form"
+            - @request
+            - @doctrine.orm.entity_manager
+            - @oro_entity.routing_helper
+            - @form.factory

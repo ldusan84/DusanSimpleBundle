@@ -1,8 +1,14 @@
 dusan_simple:
     simple_crud:
         id.label:              Id
-        firstname.label:         Subject
-        lastname.label:    "Phone number"
-        email.label:           Owner
+        firstname.label:         "First name"
+        lastname.label:    "Last name"
+        email.label:           Email
         entity_plural_label:   "Simple Crud"
-        new: New
+        new:    "New"
+        edit:    "Edit"
+        entity_label:    "Simple Crud"
+        controller:
+            saved.message:    "Simple Crud record successfully deleted"
+            notfound.message:    "Simple Crud record not found"
+            deleted.message:    "Simple Crud record successfully deleted"
